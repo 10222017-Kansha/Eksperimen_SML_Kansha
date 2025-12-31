@@ -16,16 +16,7 @@ def correlation_for_dropping(data, threshold):
 
 def preprocess_data(data_path, target_column, save_path_train, save_path_test):
     df = pd.read_csv(data_path)
-    # Menentukan fitur numerik dan kategoris
-    numeric_features = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
-    categorical_features = df.select_dtypes(include=['object']).columns.tolist()
-    
-    # Pastikan target_column tidak ada di numeric_features atau categorical_features
-    if target_column in numeric_features:
-        numeric_features.remove(target_column)
-    if target_column in categorical_features:
-        categorical_features.remove(target_column)
-
+  
     missing_values = df[df.isna().any(axis=1)].index
     columns_to_drop = ['Formatted Date', 'Summary', 'Daily Summary', 'Loud Cover']
     df = df.drop(columns=columns_to_drop)

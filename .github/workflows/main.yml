@@ -36,7 +36,7 @@ jobs:
       - name: Run Preprocessing Function
         run: |
           python preprocessing/automate_Kansha.py \
-            --data='weather_raw.csv' \
+            --data_path='weather_raw.csv' \
             --target_column='Apparent Temperature (C)' \
             --save_path_train='preprocessing/weather_train.csv' \
             --save_path_test='preprocessing/weather_test.csv'
